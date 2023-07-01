@@ -30,36 +30,39 @@ const fullRichTextAEMLess250 = `
 const fullRichTextAEM = fullRichTextAEMMore250;
 // const fullRichTextAEM = fullRichTextAEMLess250;
 
-document.addEventListener("DOMContentLoaded", function() {
-    
-    const container = document.getElementById("container");
+document.addEventListener('DOMContentLoaded', function () {
+   const container = document.getElementById('container');
 
-    // Crear una nueva constante fullPlainTextAEM con el texto plano
-    const fullPlainTextAEM = fullRichTextAEM.replace(/<[^>]+>/g, '');
+   // Crear una nueva constante fullPlainTextAEM con el texto plano
+   const fullPlainTextAEM = fullRichTextAEM.replace(/<[^>]+>/g, '');
 
-    // Mostrar por defecto los 250 primeros caracteres o el texto completo si es menor a 250 caracteres
-    const initialText = fullPlainTextAEM.length <= 250 ? fullPlainTextAEM : fullPlainTextAEM.slice(0, 250) + '...';
-    container.innerHTML = initialText;
+   // Mostrar por defecto los 250 primeros caracteres o el texto completo si es menor a 250 caracteres
+   const initialText =
+      fullPlainTextAEM.length <= 250
+         ? fullPlainTextAEM
+         : fullPlainTextAEM.slice(0, 250) + '...';
+   container.innerHTML = initialText;
 
-    // Agregar el enlace "Ver Más" solo si el texto tiene más de 250 caracteres
-    if (fullPlainTextAEM.length > 250) {
-        const verMasLink = document.createElement("a");
-        verMasLink.href = "#";
-        verMasLink.textContent = "Ver Más";
-        verMasLink.addEventListener("click", function () {
-        container.innerHTML = fullRichTextAEM;
-    
-        const verMenosLink = document.createElement("a");
-        verMenosLink.href = "#";
-        verMenosLink.textContent = "Ver Menos";
-        verMenosLink.addEventListener("click", function () {
+   // Agregar el enlace "Ver Más" solo si el texto tiene más de 250 caracteres
+   if (fullPlainTextAEM.length > 250) {
+      const verMasLink = document.createElement('a');
+      verMasLink.href = '#';
+      verMasLink.textContent = 'Ver Más';
+
+      verMasLink.addEventListener('click', function () {
+         container.innerHTML = fullRichTextAEM;
+
+         const verMenosLink = document.createElement('a');
+         verMenosLink.href = '#';
+         verMenosLink.textContent = 'Ver Menos';
+         verMenosLink.addEventListener('click', function () {
             container.innerHTML = initialText;
             container.appendChild(verMasLink);
-        });
-    
-        container.appendChild(verMenosLink);
-        });
-    
-        container.appendChild(verMasLink);
-    };
+         });
+
+         container.appendChild(verMenosLink);
+      });
+
+      container.appendChild(verMasLink);
+   }
 });
