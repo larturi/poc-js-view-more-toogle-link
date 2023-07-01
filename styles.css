@@ -1,0 +1,27 @@
+.seooptimizer__title {
+    font-family: 'Roboto-Medium', sans-serif;
+    margin: 0;
+    color: #0E0E2C;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 20px;
+}
+
+a {
+    cursor: pointer;
+    color: #0C7DBB;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+.container {
+    margin: 1rem;
+    padding: 2rem;
+    background-color: #F5F5F5;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: -39px;
+}
